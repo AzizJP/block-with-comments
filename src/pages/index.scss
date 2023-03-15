@@ -1,0 +1,21 @@
+/*Нормализация стилизации в разных браузерах*/
+@import '../vendor/normalize.css';
+
+/*Подключение шрифтов*/
+@import 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Prata&family=Roboto:wght@300;400;500;700&display=swap';
+
+/*Подключение стилей для страницы*/
+@import '../components/Page/Page.scss';
+
+/*Подключение стилей для header*/
+@import '../components/Header/Header.scss';
+
+/*Подключение стилей для поста*/
+@import '../components/Post/Post.scss';
+
+/*Подключение стилей для комментариев*/
+@import '../components/Comments/Comments.scss';
+@import '../components/Comment/Comment.scss';
+
+/*Подключение стилей формы для комментария*/
+@import '../components/AddComment/AddComment.scss';

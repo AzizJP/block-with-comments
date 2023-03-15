@@ -1,0 +1,123 @@
+$formPadding: 20px;
+
+.add-comment {
+  &__button {
+    margin: 0;
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+    background-color: #d8ecfaa4;
+    color: #39739d;
+    cursor: pointer;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: $formPadding;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(128, 128, 128, 0.5);
+  width: calc(90% - $formPadding * 2);
+  max-width: 400px;
+  z-index: 3;
+
+  &__wrapper {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  &__element-title {
+    margin-top: 10px;
+  }
+
+  &__user-name {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+  }
+
+  &__text {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    resize: none;
+  }
+
+  &__date {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+    background-color: #d8ecfaa4;
+    color: #39739d;
+    cursor: pointer;
+  }
+}
+
+.error {
+  display: none;
+  margin-top: -10px;
+  font-size: 12px;
+  line-height: 12px;
+  color: red;
+}
+
+@media screen and (min-width: $breakpointDesktop) {
+  .add-comment {
+    &__button {
+      transition: box-shadow linear 0.2s;
+
+      &:hover {
+        box-shadow: 0 0 10px 0 rgba(57, 115, 157, 0.8);
+        transition: box-shadow linear 0.2s;
+      }
+    }
+  }
+
+  .form {
+    &__button {
+      transition: box-shadow linear 0.2s;
+
+      &:hover {
+        box-shadow: 0 0 10px 0 rgba(57, 115, 157, 0.8);
+        transition: box-shadow linear 0.2s;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.logo {
+  background: url(https://images.unsplash.com/photo-1570784331625-907b0c979f63?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGN1cHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60)
+    no-repeat 50% 70% / cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  &__text {
+    margin: 0;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
