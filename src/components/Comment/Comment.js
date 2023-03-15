@@ -36,8 +36,6 @@ export class Comment {
       today - new Date(doValidDate(newDate)) < 48 * 60 * 60 * 1000;
     const toFuture = today - new Date(doValidDate(newDate)) < 0;
 
-    // console.log(this._userTextElement.textContent);
-
     this._userNameElement.textContent = this._userName;
     this._userTextElement.textContent = this._text;
 

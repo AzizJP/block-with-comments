@@ -52,8 +52,6 @@ export class AddComment {
       : new Date().toLocaleString().slice(0, 17);
     this._comment.isLiked = false;
 
-    console.log(this._comment);
-
     this._commentList.push(this._comment);
     this._closePopup(evt);
   };
