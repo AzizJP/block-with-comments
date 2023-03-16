@@ -1,39 +1,37 @@
 import { doValidDate } from './Comment.helpers';
 
 export class Comment {
-  constructor({ userName, text, date, isLiked }) {
+  constructor({ userName, text, date, isLiked }, { templateId, cloneSelector }) {
     this._userName = userName;
     this._text = text;
     this._date = date;
     this._isLiked = isLiked;
+    this._templateId = templateId;
+    this._cloneSelector = cloneSelector;
   }
 
   _getCommentTemplate = () => {
     const commentElement = document
-      .querySelector('#comments')
-      .content.querySelector('.comment')
+      .querySelector(`#${this._templateId}`)
+      .content.querySelector(`.${this._cloneSelector}`)
       .cloneNode(true);
     return commentElement;
   };
 
-  generateComment = () => {
+  generateComment = ({ nameSelector, textSelector, dateSelector, trashButtonId, likeButtonId }) => {
     this._commentElement = this._getCommentTemplate();
-    this._userNameElement = this._commentElement.querySelector(
-      '.comment__user-name',
-    );
-    this._userTextElement = this._commentElement.querySelector(
-      '.comment__user-text',
-    );
-    this._commentDateElement = this._commentElement.querySelector(
-      '.comment__info-date',
-    );
+    this._userNameElement = this._commentElement.querySelector(`.${nameSelector}`);
+    this._userTextElement = this._commentElement.querySelector(`.${textSelector}`);
+    this._commentDateElement = this._commentElement.querySelector(`.${dateSelector}`);
+    this._trashButtonElement = this._commentElement.querySelector(`#${trashButtonId}`);
+    this._likeButtonElement = this._commentElement.querySelector(`#${likeButtonId}`);
+
     const today = new Date();
     const newDate = this._date;
 
-    const lessThanDay =
-      today - new Date(doValidDate(newDate)) < 24 * 60 * 60 * 1000;
-    const lessThanTwoDay =
-      today - new Date(doValidDate(newDate)) < 48 * 60 * 60 * 1000;
+    const lessThanDay = today.getDate() === new Date(doValidDate(newDate)).getDate();
+    const lessThanTwoDay = today.getDate() - new Date(doValidDate(newDate)).getDate() === 1;
+    console.log(today.getDate(), new Date(doValidDate(newDate)).getDate());
     const toFuture = today - new Date(doValidDate(newDate)) < 0;
 
     this._userNameElement.textContent = this._userName;
@@ -45,20 +43,13 @@ export class Comment {
         11,
       )} ${this._date.slice(11)}`;
     } else if (lessThanDay) {
-      this._commentDateElement.textContent = `сегодня, в ${this._date.slice(
-        11,
-      )}`;
+      this._commentDateElement.textContent = `сегодня, в ${this._date.slice(11)}`;
     } else if (lessThanTwoDay) {
-      this._commentDateElement.textContent = `вчера, в ${this._date.slice(
-        11,
-      )}`;
+      this._commentDateElement.textContent = `вчера, в ${this._date.slice(11)}`;
     } else if (!this._date.slice(11)) {
       this._commentDateElement.textContent = this._date;
     } else {
-      this._commentDateElement.textContent = `${this._date.slice(
-        0,
-        11,
-      )} в ${this._date.slice(11)}`;
+      this._commentDateElement.textContent = `${this._date.slice(0, 11)} в ${this._date.slice(11)}`;
     }
 
     this._setEventListeners();
@@ -83,11 +74,6 @@ export class Comment {
   };
 
   _setEventListeners = () => {
-    this._trashButtonElement =
-      this._commentElement.querySelector('#trash');
-    this._likeButtonElement =
-      this._commentElement.querySelector('#like');
-
     this._likeButtonElement.addEventListener('click', () =>
       this._handleLikeClick(this._likeButtonElement),
     );

@@ -20,26 +20,19 @@ export class Validator {
   _handleInputEvent = () => {
     this._deleteInputError(this._userName);
 
-    this._userName.removeEventListener(
-      'input',
-      this._handleInputEvent,
-    );
+    this._userName.removeEventListener('input', this._handleInputEvent);
   };
 
   _handleTextareaEvent = () => {
     this._deleteInputError(this._text);
 
-    this._text.removeEventListener(
-      'input',
-      this._handleTextareaEvent,
-    );
+    this._text.removeEventListener('input', this._handleTextareaEvent);
   };
 
-  enableValidation = () => {
-    this._formElement = document.querySelector('.form');
-    this._userName =
-      this._formElement.querySelector(`.form__user-name`);
-    this._text = this._formElement.querySelector(`.form__text`);
+  enableValidation = ({ formSelector, inputId, textareaId }) => {
+    this._formElement = document.querySelector(`.${formSelector}`);
+    this._userName = this._formElement.querySelector(`#${inputId}`);
+    this._text = this._formElement.querySelector(`#${textareaId}`);
 
     if (!this._isValid(this._userName)) {
       this._showInputError(this._userName);

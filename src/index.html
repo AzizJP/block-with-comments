@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Пост с комментариями</title>
   </head>
   <body class="page">
@@ -20,23 +17,12 @@
           <h1 class="post__title">Не могу заварить чай</h1>
           <div class="post__info-wrapper">
             <p class="post__info">
-              Вопрос задан:<span
-                class="post__info_value"
-                id="date-created"
-              ></span>
+              Вопрос задан:<span class="post__info_value" id="date-created"></span>
             </p>
             <p class="post__info">
-              Изменен:<span
-                class="post__info_value"
-                id="date-updated"
-              ></span>
+              Изменен:<span class="post__info_value" id="date-updated"></span>
             </p>
-            <p class="post__info">
-              Просмотрен:<span
-                class="post__info_value"
-                id="viewed"
-              ></span>
-            </p>
+            <p class="post__info">Просмотрен:<span class="post__info_value" id="viewed"></span></p>
           </div>
         </section>
         <section class="post__main">
@@ -44,20 +30,21 @@
             <div class="post__rating">
               <button
                 type="button"
+                id="rating-increment"
                 class="post__button post__button_increment"
                 data-prompt="Вопрос отражает стремление разобраться; он понятен и несёт пользу"
               ></button>
               <span class="post__rating_counter">0</span>
               <button
                 type="button"
+                id="rating-decrement"
                 class="post__button post__button_decrement"
                 data-prompt="Вопрос не отражает стремления разобраться; он непонятен или не несёт пользы"
               ></button>
             </div>
             <p class="post__text">
-              Вскипятил чайник, достал пакетик из пачки, закинул в
-              кружку, залил горячей водой – но чай не заваривается.
-              Подскажите, в чем может быть проблема?
+              Вскипятил чайник, достал пакетик из пачки, закинул в кружку, залил горячей водой – но
+              чай не заваривается. Подскажите, в чем может быть проблема?
             </p>
           </div>
           <ul class="post__tags">
@@ -72,9 +59,7 @@
             <div class="comment">
               <div class="comment__user">
                 <h3 class="comment__user-name">Cuphead</h3>
-                <p class="comment__user-text">
-                  Ты пробовал выстрелить из пальца XD?
-                </p>
+                <p class="comment__user-text">Ты пробовал выстрелить из пальца XD?</p>
               </div>
               <div class="comment__info">
                 <span class="comment__info-date">15.12.2012</span>
@@ -94,20 +79,11 @@
           ></template>
         </section>
         <section class="add-comment">
-          <button type="button" class="add-comment__button">
-            Оставить комментарий
-          </button>
+          <button type="button" class="add-comment__button">Оставить комментарий</button>
           <div class="form__wrapper">
-            <form
-              novalidate
-              name="add-comment-form"
-              id="add-comment-form"
-              class="form"
-            >
+            <form novalidate name="add-comment-form" id="add-comment-form" class="form">
               <h4 class="form__title">Форма отправки комментария</h4>
-              <label for="user-name" class="form__element-title"
-                >Имя</label
-              >
+              <label for="user-name" class="form__element-title">Имя</label>
               <input
                 type="text"
                 id="user-name"
@@ -117,14 +93,8 @@
                 maxlength="30"
                 required
               />
-              <label
-                for="user-name"
-                id="user-error"
-                class="error"
-              ></label>
-              <label for="comment-text" class="form__element-title"
-                >Сообщение</label
-              >
+              <label for="user-name" id="user-error" class="error"></label>
+              <label for="comment-text" class="form__element-title">Сообщение</label>
               <textarea
                 placeholder="Введите текст сообщения"
                 class="form__text"
@@ -133,34 +103,12 @@
                 minlength="2"
                 required
               ></textarea>
-              <label
-                for="comment-text"
-                id="text-error"
-                class="error"
-              ></label>
-              <label for="comment-date" class="form__element-title"
-                >Дата</label
-              >
-              <input
-                type="datetime-local"
-                class="form__date"
-                id="comment-date"
-              />
+              <label for="comment-text" id="text-error" class="error"></label>
+              <label for="comment-date" class="form__element-title">Дата</label>
+              <input type="datetime-local" class="form__date" id="comment-date" />
               <div class="form__buttons">
-                <button
-                  type="submit"
-                  id="submit-button"
-                  class="form__button"
-                >
-                  Опубликовать
-                </button>
-                <button
-                  type="button"
-                  id="cancel-button"
-                  class="form__button"
-                >
-                  Отмена
-                </button>
+                <button type="submit" id="submit-button" class="form__button">Опубликовать</button>
+                <button type="button" id="cancel-button" class="form__button">Отмена</button>
               </div>
             </form>
           </div>

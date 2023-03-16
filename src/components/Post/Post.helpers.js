@@ -1,9 +1,4 @@
-export const changeWordEnding = (
-  num,
-  wordForOneItem,
-  wordForTwoItems,
-  wordForFiveItems,
-) => {
+export const changeWordEnding = (num, wordForOneItem, wordForTwoItems, wordForFiveItems) => {
   let remain10 = num % 10;
   let remain100 = num % 100;
 
