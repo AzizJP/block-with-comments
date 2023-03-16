@@ -76,10 +76,13 @@ export class Post {
     this._ratingElements.promptElement.innerHTML = promptHtml;
     this._buttons.append(this._ratingElements.promptElement);
 
-    let left = coords.left + target.offsetWidth + 20;
-    let top =
-      coords.top - (this._ratingElements.promptElement.offsetHeight - target.offsetHeight) / 2;
-    if (top < 0) top = coords.top;
+    let promptImageHeightDifference =
+      this._ratingElements.promptElement.offsetHeight - target.offsetHeight;
+    let left = target.offsetWidth + 20;
+    let top = 0;
+    if (target.id === 'rating-decrement') {
+      top = this._buttons.offsetHeight - target.offsetHeight - promptImageHeightDifference / 2;
+    }
 
     this._ratingElements.promptElement.style.left = `${left}px`;
     this._ratingElements.promptElement.style.top = `${top}px`;

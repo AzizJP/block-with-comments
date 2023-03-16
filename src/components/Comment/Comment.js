@@ -31,7 +31,6 @@ export class Comment {
 
     const lessThanDay = today.getDate() === new Date(doValidDate(newDate)).getDate();
     const lessThanTwoDay = today.getDate() - new Date(doValidDate(newDate)).getDate() === 1;
-    console.log(today.getDate(), new Date(doValidDate(newDate)).getDate());
     const toFuture = today - new Date(doValidDate(newDate)) < 0;
 
     this._userNameElement.textContent = this._userName;
